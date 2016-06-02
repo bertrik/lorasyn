@@ -42,8 +42,8 @@ static void lora_syn(syn_t *s, int symbol, bool inverse)
     // initial cyclic shift is equal to the symbol value
     double shift = symbol;
 
-    int num_steps = s->Fs * (1 << s->SF) / s->BW;
-    for (int i = 0; i < num_steps; i++) {
+    int num_samples = s->Fs * (1 << s->SF) / s->BW;
+    for (int i = 0; i < num_samples; i++) {
         // output the complex signal
         double out_i = cos(s->phase);
         double out_q = sin(s->phase);
